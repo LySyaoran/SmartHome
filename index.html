@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <style>
+        .home-product{
+            width: 30%;
+            color: #626262;
+            transition: transform 0.3s;
+        }
+        .home-product:hover{
+            transform: scale(1.024);
+            cursor: pointer;
+        }
+        .home-product-icon{
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .home-product-label{
+            margin: 10px 0 0 0;
+            font-size: 22px;
+            text-align: center;
+        }
+        .home-product-sub{
+            text-align: center;
+            margin: 10px;
+        }
+        .home-product-img{
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img class="logo-img" src="logo.png" alt="logo"></a>
+        </div>
+        <div class="menu">
+            <ul style="display: flex;">
+                <li class="menu-item">
+                    <a href="gioithieu.html">Giới thiệu</a>
+                </li>
+                <li class="menu-item">
+                    <a href="Sanpham.html">Sản phẩm</a>
+                    <div class="menu_1">
+                        <ul>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị theo giải pháp</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#congtacthongminh">Công tắc thông minh</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Leto</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Athena</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Hera</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Nút bấm ngữ cảnh không dây</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#denthongminh">Đèn thông minh</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Downlight thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Bulb thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Panel thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Dây thông minh</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#cambien">Cảm biến</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến cửa</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến chuyển động</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến âm trần</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#remcua">Bộ rèm cửa</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Bộ điều khiển rèm cửa thông minh</a>
+                                            </div>
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Ray rèm điện thông minh</a>
+                                            </div>
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Công tắc điều khiển rèm cửa thông minh</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị trung tâm</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#fptplaybox">FPT Play Box S</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#usbzingbee">USB ZingBee</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị độc lập</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#bdkhn">Bộ điều khiển hồng ngoại</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#ocmkat">Ổ cắm mặt kính âm tường</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị kết hợp</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#kctm">Khóa cửa văn tay YALE</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#kctm">Khóa cửa thẻ từ YALE</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a href="khuyenmai.html">Tin tức</a>
+                    <div class="menu_1" style="left: -42px;">
+                        <ul>
+                            <li class="menu_1_item">
+                                <a href="khuyenmai.html">Khuyến mãi</a>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="kienthuc.html">Kiến thức</a>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="congtrinh.html">Công trình</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a href="hotro.html">Hỗ trợ</a>
+                </li>
+                <li class="menu-item">
+                    <a href="formlogin.html"><i style="margin-right: 10px;" class="fa-solid fa-bag-shopping"></i>Đăng nhập</a>
+                </li>
+                <li class="menu-item icon-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box_search">
+        <div class="search-main">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="inp_search" id="inp_search" placeholder="Bạn muốn tìm kiếm điều gì ?">
+        </div>
+        <p>Tìm kiếm hàng đầu</p>
+        <ul>
+            <li class="text-search">Giải Pháp Chiếu Sáng</li>
+            <li class="text-search">Hướng Dẫn Phần Cài Đặt Chung Cho Tất Cả Sản Phẩm</li>
+            <li class="text-search">Giải Pháp Nhà Thông Minh Và Trải Nghiệm Thực Tế</li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="section active">
+            <div class="content bg-img">
+                <div style="display: flex; align-items: center; justify-content: space-between; position: relative; top: 175px;">
+                    <div style="color: white;"><i class="fa-solid fa-angle-left"></i></div>
+                    <div style="color: white;"><i class="fa-solid fa-angle-right"></i></div>
+                </div>
+                <div style="display: flex; justify-content: center; position: relative; top: 360px;">
+                    <div style="display: flex;">
+                        <div class="icon-status"></div>
+                        <div class="icon-status"></div>
+                        <div class="icon-status"></div>
+                        <div class="icon-status"></div>
+                        <div class="icon-status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="content content-item1">
+                <h2 class="text_fade-in" style="text-align: center; color: #949090;">FPT Smart Home - Thương hiệu nhà thông minh từ FPT</h2>
+                <p class="text_fade-in" style="margin: -10px 0 30px 0; text-align: center; font-size: 30px; font-weight: 700;">Sản Phẩm Nổi Bật</p>
+                <div class="in_content">
+                    <div class="in_content-text text_right-in">
+                        <p style="font-size: 30px; font-weight: 600; color: black;">Ổ Cắm Thông Minh WiFi</p>
+                        <p style="margin: 30px 100px 30px 0; font-size: 16px;">Ổ cắm thông minh WiFi giúp 
+                            biến các thiết bị điện 
+                            gia dụng trong nhà như 
+                            quạt, đèn, sạc, ấm đun… 
+                            thành các thiết bị thông 
+                            minh khi dễ dàng điều khiển 
+                            chúng từ xa, hẹn giờ tự động.
+                        </p>
+                        <p style="font-size: 30px; font-weight: 600; color: black;">350.000 VNĐ</p>
+                        <p>(Chưa bao gồm VAT)</p>
+                        <button class="box-more">Tìm Hiểu Ngay</button>
+                    </div>
+                    <img class="in_content-img text_left-in" src="img_sp_noibat.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="content content-item2">
+                <h2 class="text_fade-in" style="text-align: center; color: #949090;">Những Công Trình Tiêu Biểu</h2>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <a href="congtrinh.html#home1" class="home-product text_fade-down">
+                        <img class="home-product-img" src="img_home-product1.jpg" alt="">
+                        <p class="home-product-label">Biệt Thự Celadon Tân Phú</p>
+                        <p class="home-product-sub">Tân Phú, Hồ Chí Minh</p>
+                        <div class="home-product-icon">
+                            <div>
+                                <i style="font-size: 12px;" class="fa-solid fa-bed"></i>
+                                <label style="font-size: 12px;" for="">:3</label>
+                                <i style="margin-left: 7px; font-size: 12px;" class="fa-solid fa-bath"></i>
+                                <label style="font-size: 12px;" for="">:3</label>
+                                <i style="margin-left: 7px; font-size: 12px;" class="fa-solid fa-house-flag"></i>
+                                <label style="font-size: 12px;" for="">:150m2</label>
+                            </div>
+                            <label style="padding-left: 20px; font-size: 12px; text-align: center; border-left: 1px solid; float: right;">Căn hộ 3 phòng ngủ</label>
+                        </div>
+                        <table cellspacing="5">
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Chiếu Sáng</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Điều Khiển</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp An Ninh</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Truyền Hình</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </a>
+                    <a href="congtrinh.html#home2" class="home-product text_fade-in1">
+                        <img class="home-product-img" src="img_home-product2.jpg" alt="">
+                        <p class="home-product-label">Căn Hộ Phú Quốc</p>
+                        <p class="home-product-sub">Phú Quốc, Việt Nam</p>
+                        <div class="home-product-icon">
+                            <div>
+                                <i style="font-size: 12px;" class="fa-solid fa-bed"></i>
+                                <label style="font-size: 12px;" for="">:3</label>
+                                <i style="margin-left: 7px; font-size: 12px;" class="fa-solid fa-bath"></i>
+                                <label style="font-size: 12px;" for="">:2</label>
+                                <i style="margin-left: 7px; font-size: 12px;" class="fa-solid fa-house-flag"></i>
+                                <label style="font-size: 12px;" for="">:100m2</label>
+                            </div>
+                            <label style="padding-left: 20px; font-size: 12px; text-align: center; border-left: 1px solid; float: right;">Căn hộ 2 phòng ngủ</label>
+                        </div>
+                        <table cellspacing="5">
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Chiếu Sáng</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Điều Khiển</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp An Ninh</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Truyền Hình</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </a>
+                    <a href="congtrinh.html#home3" class="home-product text_fade-down">
+                        <img class="home-product-img" src="img_home-product3.jpg" alt="">
+                        <p class="home-product-label">Nhà Phố Quận 7</p>
+                        <p class="home-product-sub">Quận 7, Hồ Chí Minh</p>
+                        <div class="home-product-icon">
+                            <div>
+                                <i style="font-size: 12px;" class="fa-solid fa-bed"></i>
+                                <label style="font-size: 12px;" for="">:3</label>
+                                <i style="margin-left: 7px; font-size: 12px;" class="fa-solid fa-bath"></i>
+                                <label style="font-size: 12px;" for="">:3</label>
+                                <i style="margin-left: 7px; font-size: 12px;" class="fa-solid fa-house-flag"></i>
+                                <label style="font-size: 12px;" for="">:90m2</label>
+                            </div>
+                            <label style="padding-left: 20px; font-size: 12px; text-align: center; border-left: 1px solid; float: right;">Nhà phố 3 tầng</label>
+                        </div>
+                        <table cellspacing="5">
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Chiếu Sáng</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Điều Khiển</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp An Ninh</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 12px; margin-left: -10px;">Giải Pháp Truyền Hình</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div style="background-color: #e5e5e5; padding: 1vh 10vh 0 10vh;" class="content content-item1">
+                <h2 class="text_fade-in" style="text-align: center; color: #3c4043; font-size: 25px;">Gói thiết bị Smart Home dành riêng cho gia đình bạn</h2>
+                <div class="in_content" style="border-radius: 18px;">
+                    <div class="in_content-text text_right-in" style="display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 0 100px;">
+                        <p style="font-size: 20px; font-weight: 600; color: black; margin: 20px 0;">Gói giải pháp</p>
+                        <p style="font-size: 35px; font-weight: 600; color: black;">Căn hộ 2 phòng ngủ</p>
+                        <table cellspacing="20">
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 18px; margin-left: -10px;">Giải Pháp Chiếu Sáng</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 17px; margin-left: -10px;">Giải Pháp Điều Khiển</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <p style="font-size: 17px; margin-left: 5px;">Giải Pháp An Ninh</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <p style="font-size: 17px; margin-left: 5px;">Giải Pháp Truyền Hình</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <div style="margin-right: 50px;">
+                                <p style="font-size: 20px; color: black;">Giá gói sản phẩm từ:</p>
+                                <p style="font-size: 30px; font-weight: 600; color: black;">19.900.000 VNĐ</p>
+                                <p style="font-size: 12px;">(Chưa bao gồm VAT và phí thi công)</p>
+                            </div>
+                            <button class="box-more">Chọn gói này</button>
+                        </div>
+                    </div>
+                    <img style="height: 72vh;" class="in_content-img text_left-in" src="img_combo-product1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div style="background-color: #e5e5e5; padding: 1vh 10vh 0 10vh;" class="content content-item1">
+                <!-- <h2 class="text_fade-in" style="text-align: center; color: #3c4043; font-size: 25px;">Gói thiết bị Smart Home dành riêng cho gia đình bạn</h2> -->
+                <div class="in_content" style="border-radius: 18px; margin-top: 30px;">
+                    <img style="height: 80vh;" class="in_content-img text_left-in" src="img_combo-product2.jpg" alt="">
+                    <div class="in_content-text text_right-in" style="display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 0 80px;">
+                        <p style="font-size: 20px; font-weight: 600; color: black; margin: 20px 0;">Gói giải pháp</p>
+                        <p style="font-size: 35px; font-weight: 600; color: black;">Căn hộ 3 phòng ngủ</p>
+                        <table cellspacing="20">
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 18px; margin-left: -10px;">Giải Pháp Chiếu Sáng</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 18px; margin-left: -10px;">Giải Pháp Điều Khiển</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 18px; margin-left: 5px;">Giải Pháp An Ninh</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; margin: 10px 0 5px 0;">
+                                        <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                        <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                        <p style="font-size: 18px; margin-left: 5px;">Giải Pháp Truyền Hình</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <div style="margin-right: 50px;">
+                                <p style="font-size: 20px; color: black;">Giá gói sản phẩm từ:</p>
+                                <p style="font-size: 30px; font-weight: 600; color: black;">26.590.000 VNĐ</p>
+                                <p style="font-size: 12px;">(Chưa bao gồm VAT và phí thi công)</p>
+                            </div>
+                            <button class="box-more">Chọn gói này</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="content content-item2">
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <h2 class="text_fade-in" style="text-align: center; color: #949090; font-size: 30px; margin: 20px 0 40px 0;">Những Kiến Thức Người Chơi Smart Home Nên Biết</h2>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="position: relative;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; position: absolute; top: 50px; left: -110px;">
+                            <div style="color: black;"><i class="fa-solid fa-angle-left need_know_left"></i></div>
+                        </div>
+                    </div>
+                    <div class="change_home_product change_active">
+                        <a href="kienthuc.html#need_know_1" class="home-product text_fade-down" style="width: 23%; position: relative;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know1.png" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                7 tiện ích từ giải pháp nhà thông minh và trải nghiệm thực tế
+                            </p>
+                            <p style="text-align: center;">Giải pháp nhà thông minh (Smart Home Solution) 
+                                FPT Smart Home đã ra đời mang đến giá trị 
+                                sống đích thực cho mọi người, mọi nhà. Khám phá ngay!
+                            </p>
+                        </a>
+                        <a href="kienthuc.html#need_know_2" class="home-product text_fade-in1" style="width: 23%;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know2.png" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                Cập nhật xu hướng nhà thông minh mới nhất năm 2022
+                            </p>
+                            <p style="text-align: center;">
+                                Xu hướng nhà thông minh mới nhất 2022 được FPT Smart Home cập nhật chắc chắn sẽ mang lại cho bạn chất lượng cuộc sống hiện đại và tiện nghi
+                            </p>
+                        </a>
+                        <a href="kienthuc.html#need_know_3" class="home-product text_fade-down" style="width: 23%;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know3.jpg" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                Tự thiết kế nhà thông minh có khó không? 4 bước triển khai chi tiết
+                            </p>
+                            <p style="text-align: center;">
+                                Chi tiết 4 bước tự thiết kế nhà thông minh đơn giản được chia sẻ bởi FPT Smart Home giúp bạn sở hữu căn hộ Smart Home vừa đẹp vừa tiện nghi
+                            </p>
+                        </a>
+                        <a href="kienthuc.html#need_know_4" class="home-product text_fade-in1" style="width: 23%; position: relative;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know4.png" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                4 lưu ý cần nhớ khi lắp đặt rèm thông minh - FPT Smart Home
+                            </p>
+                            <p style="text-align: center;">
+                                Nắm vững 4 lưu ý cần nhớ khi lắp đặt rèm thông minh của FPT Smart Home sẽ giúp cho quá trình sử dụng rèm cửa của bạn trở nên dễ dàng hơn
+                            </p>
+                        </a>
+                    </div>
+                    <div class="change_home_product">
+                        <a href="#" class="home-product text_fade-down" style="width: 23%; position: relative;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know5.png" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                Chi Phí Thi Công lắp Đặt Nhà Thông Minh Tại FPT Smart Home
+                            </p>
+                            <p style="text-align: center;">
+                                Thi công lắp đặt nhà thông minh 
+                                (smart home) đạt chuẩn - an toàn - chất lượng tại FPT Smart Home. 
+                                Liên hệ 1900 6600 để được tư vấn chi phí cụ thể
+                            </p>
+                        </a>
+                        <a href="#" class="home-product text_fade-in1" style="width: 23%;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know6.png" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                Ổ Cắm Thông Minh Là Gì? Công Dụng, Cách Chọn Mua Ổ Cắm Thông Minh
+                            </p>
+                            <p style="text-align: center;">
+                                Ổ cắm điện thông minh là loại ổ cắm điện có khả năng 
+                                tương tác với các thiết bị kết nối Wifi hoặc Bluetooth 
+                                một cách dễ dàng thông qua các ứng dụng trên 
+                            </p>
+                        </a>
+                        <a href="#" class="home-product text_fade-down" style="width: 23%;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know7.png" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                Giá Ổ Cắm Điện Âm Tường Bao Nhiêu? Loại Nào Tốt Nhất Hiện Nay
+                            </p>
+                            <p style="text-align: center;">
+                                Ổ cắm điện âm tường mặt kính FPT Smart Home chất lượng 
+                                cao cấp thiết kế tinh tế sẽ là một gợi ý đáng tham khảo cho không gian sống của bạn!
+                            </p>
+                        </a>
+                        <a href="#" class="home-product text_fade-in1" style="width: 23%; position: relative;">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;" class="home-product-img" src="img_need_know8.png" alt="">
+                            </div>
+                            <p class="home-product-sub" style="font-size: 17px; font-weight: 600; padding-bottom: 20px; border-bottom: 1px solid black;">
+                                Đơn Vị Lắp Đặt Nhà Thông Minh Uy Tín TPHCM - FPT Smart Home
+                            </p>
+                            <p style="text-align: center;">
+                                Bạn đang tìm kiếm một đơn vị lắp đặt nhà thông minh tại TPHCM uy tín? 
+                                Click để tìm hiểu chi tiết về FPT Smart Home - thương hiệu hàng Đầu
+                                hiện nay
+                            </p>
+                        </a>
+                    </div>
+                    <div style="position: relative;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; position: absolute; top: 50px; right: -110px;">
+                            <div style="color: black;"><i class="fa-solid fa-angle-right need_know_right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; margin-top: 10px;">
+                    <div style="display: flex;">
+                        <div style="background-color: black;" class="icon-status1"></div>
+                        <div style="background-color: black;" class="icon-status1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div style="background-color: #e5e5e5; padding: 1vh 10vh 0 10vh;" class="content content-item1">
+                <h2 class="text_fade-in" style="text-align: center; color: #3c4043; font-size: 32px;">Cảm nhận khách hàng</h2>
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <p style="width: 70%; font-size: 22px; margin-right: 20px; animation: left-in 1s ease;">Có thể tương tác và quản lý hệ thống 
+                            thiết bị thông minh trong nhà thông 
+                            qua điện thoại rất tiện lợi. 
+                            Tối muốn tắt hết mọi thứ chỉ 
+                            cần nói “đi ngủ” thì tất cả sẽ được xử lý 
+                            nhanh chóng, không phải tự đi tắt đèn, 
+                            kéo rèm như trước nữa.
+                        </p>
+                        <div style="width: 30%; display: flex; align-items: center;">
+                            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <img style="width: 70%; border-radius: 50%;" src="img_feedback_1.webp" alt="">
+                                <p>Hoàng Sang</p>
+                            </div>
+                            <img style="width: 30%;" src="img_vv1.png" alt="">
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 30%; display: flex; align-items: center;">
+                            <img style="width: 30%;" src="img_vv.png" alt="">
+                            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <img style="width: 70%; border-radius: 50%;" src="img_feedback_2.webp" alt="">
+                                <p>Văn Hoàng</p>
+                            </div>
+                        </div>
+                        <p style="width: 70%; font-size: 22px;  margin-left: 20px; animation: right-in 1s ease;">
+                            Thuận tiện. Có lần anh đi công tác xa 
+                            mà quên tắt đèn, nhà lúc đó lại không 
+                            có ai. Thông qua điện thoại anh có thể 
+                            điều khiển tắt đèn từ xa, quản lý cách dễ dàng hơn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div style="background-color: #e5e5e5; padding: 1vh 10vh 0 10vh;" class="content content-item1">
+                <h2 class="text_fade-in" style="text-align: center; color: #3c4043; font-size: 32px;">Cảm nhận khách hàng</h2>
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 30%; display: flex; align-items: center;">
+                            <img style="width: 30%;" src="img_vv.png" alt="">
+                            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <img style="width: 70%; border-radius: 50%;" src="img_feedback_3.webp" alt="">
+                                <p>Văn Hoàng</p>
+                            </div>
+                        </div>
+                        <p style="width: 70%; font-size: 22px;  margin-left: 20px; animation: right-in 1s ease;">
+                            Kiểu dáng thiết kế mẫu mã các thiết bị đẹp, 
+                            sài tiện lợi. FPT Smart Home có đội ngũ bảo 
+                            hành rất tốt, có vấn đề sẽ có người đến xem 
+                            và hỗ trợ trong ngày.
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <p style="width: 70%; font-size: 22px; margin-right: 20px; animation: left-in 1s ease;">
+                            Anh rất an tâm khi hệ thống an ninh báo động 
+                            chính xác, không nhầm lẫn giữa người và thú 
+                            cưng, cũng giúp cảnh báo cho anh khi con nhỏ 
+                            đi vào vùng nguy hiểm. Rất tiện.
+                        </p>
+                        <div style="width: 30%; display: flex; align-items: center;">
+                            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <img style="width: 70%; border-radius: 50%;" src="img_feedback_4.webp" alt="">
+                                <p>Hoàng Sang</p>
+                            </div>
+                            <img style="width: 30%;" src="img_vv1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="content content-item2">
+                <div style="width: 100%; height: 100%; display: flex;">
+                    <div style="width: 50%; height: 100%;">
+                        <div style="margin-top: 50px;">
+                            <img style="margin-left: 10px;"  src="logo.png" alt="">
+                            <ul>
+                                <li>Tên đơn vị: CÔNG TY CỔ PHẦN VIỄN THÔNG FPT</li>
+                                <li>Người đại diện: Anh XXX</li>
+                                <li>Địa chỉ: Tầng 2, Tòa nhà FPT Cầu Giấy, Phố Duy Tân, P. Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội</li>
+                                <li>Điện thoại: 19006600 - Email: fptsmarthome@fpt.com</li>
+                                <li>Giấy chứng nhận ĐKKD số 0101778163 do Sở Kế hoạch Đầu tư Thành phố Hà Nội cấp ngày 28/07/2005</li>
+                            </ul>
+                            <img style="width: 160px;" src="img_footer.png" alt="">
+                        </div>
+                    </div>
+                    <div style="width: 25%; height: 100%;">
+                        <div style="margin-top: 50px;">
+                            <h1 style="font-weight: 700; margin-left: 10px;">Sản phẩm</h1>
+                            <ul>
+                                <li><a href="#">Ổ Cắm Thông Minh WiFi</a></li>
+                                <li><a href="#">Bộ Điều Khiển Hồng Ngoại</a></li>
+                                <li><a href="#">Cảm Biến Chuyển Động Âm Trần</a></li>
+                                <li><a href="#">FPT Play Box S</a></li>
+                                <li><a href="#">Cảm Biến Cửa</a></li>
+                                <li><a href="#">Đèn LED Downlight Thông Minh</a></li>
+                            </ul>
+                            <div style="display: flex; justify-content: space-between; margin-top: 35px;">
+                                <div style="font-size: 25px; width: 70px; height: 70px; border-radius: 50%; background-color: black; color: white; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <div style="font-size: 25px; width: 70px; height: 70px; border-radius: 50%; background-color: black; color: white; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 25%; height: 100%;">
+                        <div style="margin-top: 50px;">
+                            <h1 style="font-weight: 700; margin-left: 10px;">Hỗ trợ</h1>
+                            <ul>
+                                <li>FAQ</li>
+                                <li>Đăng ký đại lý</li>
+                                <li>Chính sách bảo hành</li>
+                                <li>Chính sách quyền riêng tư</li>
+                                <li>Điều khoản sử dụng</li>
+                                <li>Chính sách xử lý dữ liệu cá nhân</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Active.js"></script>
+</body>
+</html>

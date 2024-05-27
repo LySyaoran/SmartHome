@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <script src="sanpham.js"></script>
+    <title>Sản phẩm</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+        p{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        /*//////////////////////// HEADER_START //////////////////*/
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            background-color: white;
+            animation: fadeIn .4s ease;
+            position: fixed;
+            width: 100%;
+            margin-top: -1rem;
+        }
+        .act-header{
+            background-color: rgb(255, 77, 0);
+            color: white;
+        }
+        .logo{
+            margin-left: 50px;
+            border: 3px solid #e95907;
+            padding: 6px;
+            border-radius: 10px;
+        }
+        .logo-img{
+            height: 15px;
+        }
+        .menu{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+        }
+        .menu-item{
+            color: black;
+            padding: 7px;
+            font-size: 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-left: 20px;
+            transition: transform 0.1s;
+            position: relative;
+        }
+        .menu-item.act-header {
+            color: white;
+        }
+        .menu-item:hover{
+            background-color: #f1f1f1;
+            background-color: rgb(255, 77, 0);
+            color: white;
+            cursor: pointer;
+        }
+        .menu-item:hover .menu_1{
+            display: block;
+            transform: scale(1);
+            cursor: pointer;
+        }
+        .menu-item::after{
+            content: '';
+            position: absolute;
+            display: block;
+            width: 120px;
+            height: 13px;
+            background-color: transparent;
+            left: -10px;
+        }
+        /*//////////////////////// HEADER_END //////////////////*/
+
+        /*//////////////////////// SEARCH_START ////////////////*/
+        .box_search{
+            width: 100%;
+            background-color: rgb(245, 245, 245);
+            display: none;
+            color: black;
+            position: fixed;
+            padding: 5%;
+            font-size: 20px;
+            top: 47px;
+        }
+        .search-main{
+            display: flex;
+            align-items: center;
+            width: 88%;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px 0 10px 30px;
+        }
+        .search-main .fa-magnifying-glass{
+            margin-right: 30px;
+        }
+        #inp_search{
+            width: 100%;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            margin: 10px 0;
+            background-color: transparent;
+            padding: 5px;
+        }
+        #inp_search:focus{
+            outline: none;
+        }
+        .box_search p{
+            color: #757575;
+            font-size: 18px;
+            margin: 20px;
+        }
+        .box_search ul{
+            list-style-type: disc;
+            font-size: 18px;
+            margin: 20px;
+            width: 88%;
+        }
+        .box_search li{
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .box_search li:hover{
+            background-color: #e8e6e6;
+            border-radius: 10px;
+        }
+        /*//////////////////////// SEARCH_END //////////////////*/
+
+
+        .menu_1{
+            position: absolute;
+            background-color: white;
+            color: black;
+            top: 42px;
+            left: -126px;
+            display: none;
+        }
+        .menu_1_item{
+            position: relative;
+            width: 170px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            border-right: 1px solid rgb(185 185 185);
+            text-align: center;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .menu_1_item:hover{
+            color: white;
+            background-color: rgb(255, 77, 0);
+        }
+        .menu_1_item:hover .menu_2{
+            display: block;
+            cursor: pointer;
+        }
+        .menu_2{
+            position: absolute;
+            background-color: white;
+            color: black;
+            top: 0px;
+            left: 171px;
+            display: none;
+        }
+        .menu_2_item{
+            position: relative;
+            width: 190px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            border-right: 1px solid rgb(185 185 185);
+            text-align: center;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .menu_2_item:hover{
+            color: white;
+            background-color: rgb(255, 77, 0);
+        }
+        .menu_2_item:hover .menu_3{
+            display: block;
+        }
+        .menu_3{
+            position: absolute;
+            background-color: white;
+            color: black;
+            top: 0px;
+            left: 190px;
+            display: none;
+        }
+        .menu_3_item{
+            position: relative;
+            width: 300px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            border-left: 1px solid rgb(185 185 185);
+            text-align: center;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .menu_3_item:hover{
+            color: white;
+            background-color: rgb(255, 77, 0);
+        }
+        .menu ul li a:hover{
+            color: white;
+        }
+
+        a{
+            text-decoration: none;
+            display: block;
+            color: black;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+        .table_1{
+            width: 100%;
+            margin-top: 1rem;
+            margin-bottom: 7rem;
+            padding-top: 4rem;
+        }
+        .child_1{
+            border-bottom: 1rem solid rgb(212, 207, 207);
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        .table_1 p{
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .table_1 td{
+            width: 20%;
+            padding: 1px;
+            border: 1px solid white;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .table_1 td:hover{
+            border: 1px solid black;
+            border-radius: 0.8rem;
+        }
+        .content-item2{
+            padding: 0 6rem 0 6rem;
+            background-color: white;
+            font-size: 1.1rem;
+            border-top: 0.2rem solid rgb(212, 207, 207);
+        }
+        .content-item2 ul li{
+            margin: 1.1rem 0.8rem 1.1rem 0;
+            padding-right: 1.7rem;
+        }
+        .tintuc_item{
+                padding: 0.6rem 1rem;
+                color: #757575;
+                border:  2px solid #757575;
+                font-weight: 700;
+                border-radius: 1rem;
+            }
+            .tintuc_item:hover{
+                background-color: #757575;
+                color: white;
+            }
+    </style>
+</head>
+<body style="margin: 0;overflow-x: hidden;">
+
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img class="logo-img" src="logo.png" alt="logo"></a>
+        </div>
+        <div class="menu">
+            <ul style="display: flex;">
+                <li class="menu-item">
+                    <a href="gioithieu.html">Giới thiệu</a>
+                </li>
+                <li class="menu-item sanpham" href="Sanpham.html">
+                    <a class="a_sanpham" href="Sanpham.html">Sản phẩm</a>
+                    <div class="menu_1">
+                        <ul>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị theo giải pháp</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#congtacthongminh">Công tắc thông minh</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Leto</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Athena</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Hera</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Nút bấm ngữ cảnh không dây</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#denthongminh">Đèn thông minh</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Downlight thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Bulb thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Panel thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Dây thông minh</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#cambien">Cảm biến</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến cửa</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến chuyển động</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến âm trần</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#remcua">Bộ rèm cửa</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Bộ điều khiển rèm cửa thông minh</a>
+                                            </div>
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Ray rèm điện thông minh</a>
+                                            </div>
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Công tắc điều khiển rèm cửa thông minh</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị trung tâm</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#fptplaybox">FPT Play Box S</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#usbzingbee">USB ZingBee</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị độc lập</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#bdkhn">Bộ điều khiển hồng ngoại</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#ocmkat">Ổ cắm mặt kính âm tường</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị kết hợp</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#kctm">Khóa cửa văn tay YALE</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#kctm">Khóa cửa thẻ từ YALE</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item" href="#">
+                    <a href="khuyenmai.html">Tin tức</a>
+                    <div class="menu_1" style="left: -42px;">
+                        <ul>
+                            <li class="menu_1_item">
+                                <a href="khuyenmai.html">Khuyến mãi</a>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="kienthuc.html">Kiến thức</a>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="congtrinh.html">Công trình</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a href="hotro.html">Hỗ trợ</a>
+                </li>
+                <li class="menu-item" href="formlogin.html">
+                    <a href="formlogin.html"><i style="margin-right: 10px;" class="fa-solid fa-bag-shopping"></i>Đăng nhập</a>
+                </li>
+                <li class="menu-item" id="icon-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box_search">
+        <div class="search-main">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="inp_search" id="inp_search" placeholder="Bạn muốn tìm kiếm điều gì ?">
+        </div>
+        <p>Tìm kiếm hàng đầu</p>
+        <ul>
+            <li class="text-search">Giải Pháp Chiếu Sáng</li>
+            <li class="text-search">Hướng Dẫn Phần Cài Đặt Chung Cho Tất Cả Sản Phẩm</li>
+            <li class="text-search">Giải Pháp Nhà Thông Minh Và Trải Nghiệm Thực Tế</li>
+        </ul>
+    </div>
+
+    <table class="table_1 child_1">
+        <tr>
+            <th colspan="5">
+                <p style="font-size: 3rem; font-weight: 700; margin: 2rem;">Danh mục</p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <a href="Sanpham.html#congtacthongminh">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>Công tắc thông minh</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-1.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html#denthongminh">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>Đèn thông minh</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-2.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html#cambien">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>Cảm biến</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-3.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html#remcua">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>Bộ rèm cửa</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-4.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html#fptplaybox">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>FPT Play Box S</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-5.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="Sanpham.html#usbzingbee">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>USB ZingBee</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-6.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html#bdkhn">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>Bộ điều khiển hồng ngoại</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-7.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html#ocmkat">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>Ổ cắm mặt kính âm tường</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-8.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html#kctm">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <p>Khóa cửa thông minh</p>
+                        <div  style="width: 100%; height: 8rem;">
+                            <img style="width: 100%; height: 100%;" src="img_sanpham_table_1-9.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        <div style="display: flex;align-items: center; justify-content: center; margin: 3rem 0;">
+            <a style="margin-right: 2rem;" href="kienthuc.html">
+                <div class="tintuc_item">
+                    Sắp xếp
+                </div>
+            </a>
+            <a style="margin-right: 2rem;" href="khuyenmai.html">
+                <div class="tintuc_item">
+                    Thương hiệu
+                </div>
+            </a>
+            <a style="margin-right: 2rem;" href="kienthuc.html">
+                <div style="padding: 0.6rem 1rem; color: white; background-color: #757575; font-weight: 700; border-radius: 1rem;">
+                    Loại sản phẩm
+                </div>
+            </a>
+            <a href="congtrinh.html">
+                <div class="tintuc_item">
+                    Giá cả
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="congtacthongminh" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">Công tắc thông minh</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Công tắc cảm ứng Athena</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_congtacthongminh_athena.png" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">1.990.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Nút bấm ngữ cảnh không dây</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_congtacthongminh_khongday.png" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">890.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Công tắc cảm ứng Hera</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_congtacthongminh_hera.png" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">2.290.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Công tắc cảm ứng Leto</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_congtacthongminh_leto.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">890.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="denthongminh" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">Đèn thông minh</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Đèn LED DownLight thông minh</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_denthongminh_downlight.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">440.000 VNĐ</p>
+                            <p style="color: #e95907; margin: 0.8rem;">550.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Đèn LED Bulb thông minh</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_denthongminh_bulb.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">390.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Đèn LED Panel thông minh</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_denthongminh_panel.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">1.790.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Đèn LED Dây thông minh</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_denthongminh_day.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">540.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="cambien" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">Cảm biến</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Cảm biến cửa</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_cambien_cua.png" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">890.000 VNĐ</p>
+                            <p style="color: #757575; text-decoration: line-through; margin: 0.8rem;">2.190.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Cảm biến chuyển động</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_cambien_chuyendong.png" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">890.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Cảm biến âm trần</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_cambien_amtran.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">940.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="remcua" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">Bộ rèm cửa</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Bộ điều khiển rèm cửa thông minh</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_bdkrc_thongminh.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">1.590.000 VNĐ</p>
+                            <p style="color: #757575; text-decoration: line-through; margin: 0.8rem;">3.900.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Ray rèm điện thông minh</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_rayrem_thongminh.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">440.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Công tắc điều khiển rèm cửa thông minh</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 100%; height: 100%;" src="img_ctdkrc_thongminh.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">1.390.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="fptplaybox" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">FPT Play Box</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">FPT Play Box S</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 20%; height: 100%;" src="img_fptplaybox.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">2.190.000 VNĐ</p>
+                            <p style="color: #757575; text-decoration: line-through; margin: 0.8rem;">4.190.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="usbzingbee" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">USB ZingBee</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">USB ZingBee</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 20%; height: 100%;" src="img_usbzingbee.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">390.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="bdkhn" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">Bộ điều khiển hồng ngoại</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Bộ điều khiển hồng ngoại</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 20%; height: 100%;" src="img_bdk_hongngoai.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">690.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="ocmkat" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">Ổ cắm mặt kính âm tường</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Ổ cắm mặt kính âm tường</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 20%; height: 100%;" src="img_ocmk_amtuong.png" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">550.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="kctm" style="margin-bottom: 4rem; height: 1px;"></div>
+    <p style="font-size: 1.5rem; font-weight: 700; border-bottom: 0.4rem solid #e95907; padding: 0 0 1.8rem 2rem;">Khóa cửa thông minh</p>
+    <table class="table_1">
+        <tr>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Khóa cửa vân tay YALE</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 20%; height: 100%;" src="img_kcvt_yale.jpg" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">15.090.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="Sanpham.html">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;  padding: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 3rem;">
+                            <p style="font-size: 1rem; margin: 0;">Khóa cửa thẻ từ YALE</p>
+                        </div>
+                        <div  style="width: 100%; height: 10rem;">
+                            <img style="width: 20%; height: 100%;" src="img_kctt_yale.png" alt="">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; height: 4rem;">
+                            <p style="color: #e95907; margin: 0.8rem;">11.090.000 VNĐ</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; margin-right: 0.3rem;">Thêm sản phẩm</button>
+                            <button style="padding: 0.6rem; font-size: 0.7rem; border-radius: 0.2rem; ">Xóa sản phẩm</button>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="content content-item2">
+        <div style="width: 100%; height: 100%; display: flex;">
+            <div style="width: 50%; height: 100%;">
+                <div style="margin-top: 50px;">
+                    <img style="margin-left: 10px;"  src="logo.png" alt="">
+                    <ul>
+                        <li>Tên đơn vị: CÔNG TY CỔ PHẦN VIỄN THÔNG FPT</li>
+                        <li>Người đại diện: Anh XXX</li>
+                        <li>Địa chỉ: Tầng 2, Tòa nhà FPT Cầu Giấy, Phố Duy Tân, P. Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội</li>
+                        <li>Điện thoại: 19006600 - Email: fptsmarthome@fpt.com</li>
+                        <li>Giấy chứng nhận ĐKKD số 0101778163 do Sở Kế hoạch Đầu tư Thành phố Hà Nội cấp ngày 28/07/2005</li>
+                    </ul>
+                    <img style="width: 160px;" src="img_footer.png" alt="">
+                </div>
+            </div>
+            <div style="width: 25%; height: 100%;">
+                <div style="margin-top: 50px;">
+                    <h1 style="font-weight: 700; margin-left: 10px;">Sản phẩm</h1>
+                    <ul>
+                        <li><a href="#">Ổ Cắm Thông Minh WiFi</a></li>
+                        <li><a href="#">Bộ Điều Khiển Hồng Ngoại</a></li>
+                        <li><a href="#">Cảm Biến Chuyển Động Âm Trần</a></li>
+                        <li><a href="#">FPT Play Box S</a></li>
+                        <li><a href="#">Cảm Biến Cửa</a></li>
+                        <li><a href="#">Đèn LED Downlight Thông Minh</a></li>
+                    </ul>
+                    <div style="display: flex; justify-content: space-between; margin-top: 35px;">
+                        <div style="font-size: 25px; width: 70px; height: 70px; border-radius: 50%; background-color: black; color: white; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div style="font-size: 25px; width: 70px; height: 70px; border-radius: 50%; background-color: black; color: white; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 25%; height: 100%;">
+                <div style="margin-top: 50px;">
+                    <h1 style="font-weight: 700; margin-left: 10px;">Hỗ trợ</h1>
+                    <ul>
+                        <li>FAQ</li>
+                        <li>Đăng ký đại lý</li>
+                        <li>Chính sách bảo hành</li>
+                        <li>Chính sách quyền riêng tư</li>
+                        <li>Điều khoản sử dụng</li>
+                        <li>Chính sách xử lý dữ liệu cá nhân</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

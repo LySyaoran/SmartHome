@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+        <script src="congtrinh.js"></script>
+        <title>Tin tức</title>
+        <style>
+            html{
+                scroll-behavior: smooth;
+                font-size: 16px;
+                font-family: 'Poppins', sans-serif;
+            }
+            p{
+                padding: 0;
+                margin: 0;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+    
+            /*//////////////////////// HEADER_START //////////////////*/
+            .header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 5px 0;
+                border-bottom: 1px solid rgb(185 185 185);
+                background-color: white;
+                animation: fadeIn .4s ease;
+                position: fixed;
+                width: 100%;
+                /* margin-top: -1rem; */
+                z-index: 1000;
+            }
+            .act-header{
+                background-color: rgb(255, 77, 0);
+                color: white;
+            }
+            .logo{
+                margin-left: 50px;
+                border: 3px solid #e95907;
+                padding: 6px;
+                border-radius: 10px;
+            }
+            .logo-img{
+                height: 15px;
+            }
+            .menu{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 30px;
+            }
+            .menu-item{
+                color: black;
+                padding: 7px;
+                font-size: 20px;
+                border-radius: 10px;
+                font-weight: 600;
+                margin-left: 20px;
+                transition: transform 0.1s;
+                position: relative;
+            }
+            .menu-item.act-header {
+                color: white;
+            }
+            .menu-item:hover{
+                background-color: #f1f1f1;
+                background-color: rgb(255, 77, 0);
+                color: white;
+                cursor: pointer;
+            }
+            .menu-item:hover .menu_1{
+                display: block;
+                transform: scale(1);
+                cursor: pointer;
+            }
+            .menu-item::after{
+                content: '';
+                position: absolute;
+                display: block;
+                width: 120px;
+                height: 13px;
+                background-color: transparent;
+                left: -10px;
+            }
+            /*//////////////////////// HEADER_END //////////////////*/
+    
+            /*//////////////////////// SEARCH_START ////////////////*/
+            .box_search{
+                width: 100%;
+                background-color: rgb(245, 245, 245);
+                display: none;
+                color: black;
+                position: fixed;
+                padding: 5%;
+                font-size: 20px;
+                top: 47px;
+            }
+            .search-main{
+                display: flex;
+                align-items: center;
+                width: 88%;
+                background-color: white;
+                border-radius: 10px;
+                padding: 10px 0 10px 30px;
+            }
+            .search-main .fa-magnifying-glass{
+                margin-right: 30px;
+            }
+            #inp_search{
+                width: 100%;
+                font-size: 20px;
+                border: none;
+                border-radius: 10px;
+                margin: 10px 0;
+                background-color: transparent;
+                padding: 5px;
+            }
+            #inp_search:focus{
+                outline: none;
+            }
+            .box_search p{
+                color: #757575;
+                font-size: 18px;
+                margin: 20px;
+            }
+            .box_search ul{
+                list-style-type: disc;
+                font-size: 18px;
+                margin: 20px;
+                width: 88%;
+            }
+            .box_search li{
+                margin: 10px 0;
+                padding: 10px;
+            }
+            .box_search li:hover{
+                background-color: #e8e6e6;
+                border-radius: 10px;
+            }
+            /*//////////////////////// SEARCH_END //////////////////*/
+    
+    
+            .menu_1{
+                position: absolute;
+                background-color: white;
+                color: black;
+                top: 42px;
+                left: -126px;
+                display: none;
+            }
+            .menu_1_item{
+                position: relative;
+                width: 170px;
+                padding: 10px 0;
+                border-bottom: 1px solid rgb(185 185 185);
+                border-right: 1px solid rgb(185 185 185);
+                text-align: center;
+                cursor: pointer;
+                font-size: 15px;
+            }
+            .menu_1_item:hover{
+                color: white;
+                background-color: rgb(255, 77, 0);
+            }
+            .menu_1_item:hover .menu_2{
+                display: block;
+                cursor: pointer;
+            }
+            .menu_2{
+                position: absolute;
+                background-color: white;
+                color: black;
+                top: 0px;
+                left: 171px;
+                display: none;
+            }
+            .menu_2_item{
+                position: relative;
+                width: 190px;
+                padding: 10px 0;
+                border-bottom: 1px solid rgb(185 185 185);
+                border-right: 1px solid rgb(185 185 185);
+                text-align: center;
+                cursor: pointer;
+                font-size: 15px;
+            }
+            .menu_2_item:hover{
+                color: white;
+                background-color: rgb(255, 77, 0);
+            }
+            .menu_2_item:hover .menu_3{
+                display: block;
+            }
+            .menu_3{
+                position: absolute;
+                background-color: white;
+                color: black;
+                top: 0px;
+                left: 190px;
+                display: none;
+            }
+            .menu_3_item{
+                position: relative;
+                width: 300px;
+                padding: 10px 0;
+                border-bottom: 1px solid rgb(185 185 185);
+                border-left: 1px solid rgb(185 185 185);
+                text-align: center;
+                cursor: pointer;
+                font-size: 15px;
+            }
+            .menu_3_item:hover{
+                color: white;
+                background-color: rgb(255, 77, 0);
+            }
+            .menu ul li a:hover{
+                color: white;
+            }
+    
+            a{
+                text-decoration: none;
+                display: block;
+                color: black;
+            }
+            ul{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+    
+    
+    
+    
+            .table_1{
+                width: 100%;
+                margin-top: 1rem;
+                margin-bottom: 7rem;
+                padding-top: 4rem;
+            }
+            .child_1{
+                border-bottom: 1rem solid rgb(212, 207, 207);
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+            }
+            .table_1 td{
+                width: 20%;
+                padding: 1px;
+                border: 1px solid white;
+                transition: 0.3s;
+            }
+            .content-item2{
+                padding: 0 6rem 0 6rem;
+                background-color: white;
+                font-size: 1.1rem;
+                border-top: 0.2rem solid rgb(212, 207, 207);
+            }
+            .content-item2 ul li{
+                margin: 1.1rem 0.8rem 1.1rem 0;
+                padding-right: 1.7rem;
+            }
+
+
+
+            .tintuc_item{
+                padding: 0.6rem 1rem;
+                color: #757575;
+                border:  2px solid #757575;
+                font-weight: 700;
+                border-radius: 1rem;
+            }
+            .tintuc_item:hover{
+                background-color: #757575;
+                color: white;
+            }
+            .a_hover:hover{
+                text-decoration: underline;
+            }
+            .item_hover:hover{
+                color: white;
+                background-color: #757575;
+                text-decoration: underline;
+            }
+            .tintuc{
+                background-color: rgb(255, 77, 0);
+            }
+            .a_tintuc{
+                color: white;
+            }
+
+
+            .home-product{
+                width: 30%;
+                color: #626262;
+                transition: transform 0.3s;
+                cursor: pointer;
+            }
+            .home-product-icon{
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .home-product-label{
+                margin: 0.625rem 0 0 0;
+                font-size: 1.375rem;
+                text-align: center;
+            }
+            .home-product-sub{
+                text-align: center;
+                margin: 0.625rem;
+            }
+            .home-product-img{
+                width: 100%;
+                border-radius: 0.625rem;
+            }
+            .list_home{
+                display: none;
+            }
+        </style>
+    </head>
+    <body style="margin: 0;overflow-x: hidden;">
+    
+        <div class="header">
+            <div class="logo">
+                <a href="index.html"><img class="logo-img" src="logo.png" alt="logo"></a>
+            </div>
+            <div class="menu">
+                <ul style="display: flex;">
+                    <li class="menu-item">
+                        <a href="gioithieu.html">Giới thiệu</a>
+                    </li>
+                    <li class="menu-item" href="Sanpham.html">
+                        <a href="Sanpham.html">Sản phẩm</a>
+                        <div class="menu_1">
+                            <ul>
+                                <li class="menu_1_item">
+                                    <a href="Sanpham.html">Thiết bị theo giải pháp</a>
+                                    <div class="menu_2">
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#congtacthongminh">Công tắc thông minh</a>
+                                            <div class="menu_3">
+                                                <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Leto</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Athena</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Hera</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Nút bấm ngữ cảnh không dây</a></div>
+                                            </div>
+                                        </div>
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#denthongminh">Đèn thông minh</a>
+                                            <div class="menu_3">
+                                                <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Downlight thông minh</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Bulb thông minh</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Panel thông minh</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Dây thông minh</a></div>
+                                            </div>
+                                        </div>
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#cambien">Cảm biến</a>
+                                            <div class="menu_3">
+                                                <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến cửa</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến chuyển động</a></div>
+                                                <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến âm trần</a></div>
+                                            </div>
+                                        </div>
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#remcua">Bộ rèm cửa</a>
+                                            <div class="menu_3">
+                                                <div class="menu_3_item">
+                                                    <a href="Sanpham.html#remcua">Bộ điều khiển rèm cửa thông minh</a>
+                                                </div>
+                                                <div class="menu_3_item">
+                                                    <a href="Sanpham.html#remcua">Ray rèm điện thông minh</a>
+                                                </div>
+                                                <div class="menu_3_item">
+                                                    <a href="Sanpham.html#remcua">Công tắc điều khiển rèm cửa thông minh</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="menu_1_item">
+                                    <a href="Sanpham.html">Thiết bị trung tâm</a>
+                                    <div class="menu_2">
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#fptplaybox">FPT Play Box S</a>
+                                        </div>
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#usbzingbee">USB ZingBee</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="menu_1_item">
+                                    <a href="Sanpham.html">Thiết bị độc lập</a>
+                                    <div class="menu_2">
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#bdkhn">Bộ điều khiển hồng ngoại</a>
+                                        </div>
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#ocmkat">Ổ cắm mặt kính âm tường</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="menu_1_item">
+                                    <a href="Sanpham.html">Thiết bị kết hợp</a>
+                                    <div class="menu_2">
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#kctm">Khóa cửa văn tay YALE</a>
+                                        </div>
+                                        <div class="menu_2_item">
+                                            <a href="Sanpham.html#kctm">Khóa cửa thẻ từ YALE</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-item tintuc" href="#">
+                        <a class="a_tintuc" href="khuyenmai.html">Tin tức</a>
+                        <div class="menu_1" style="left: -42px;">
+                            <ul>
+                                <li class="menu_1_item">
+                                    <a href="khuyenmai.html">Khuyến mãi</a>
+                                </li>
+                                <li class="menu_1_item">
+                                    <a href="kienthuc.html">Kiến thức</a>
+                                </li>
+                                <li class="menu_1_item">
+                                    <a href="congtrinh.html">Công trình</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="hotro.html">Hỗ trợ</a>
+                    </li>
+                    <li class="menu-item" href="formlogin.html">
+                        <a href="formlogin.html"><i style="margin-right: 10px;" class="fa-solid fa-bag-shopping"></i>Đăng nhập</a>
+                    </li>
+                    <li class="menu-item" id="icon-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="box_search">
+            <div class="search-main">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="inp_search" id="inp_search" placeholder="Bạn muốn tìm kiếm điều gì ?">
+            </div>
+            <p>Tìm kiếm hàng đầu</p>
+            <ul>
+                <li class="text-search">Giải Pháp Chiếu Sáng</li>
+                <li class="text-search">Hướng Dẫn Phần Cài Đặt Chung Cho Tất Cả Sản Phẩm</li>
+                <li class="text-search">Giải Pháp Nhà Thông Minh Và Trải Nghiệm Thực Tế</li>
+            </ul>
+        </div>
+    
+        <div>
+            <div style="background-image: url(img_banner_khuyenmai.webp); height: 10rem; display: flex; align-items: center; justify-content: center;">
+                <div style="margin-top: 3rem;">
+                    <p style="color: white; font-size: 3rem; font-family: 'Times New Roman', Times, serif;">Công trình</p>
+                </div>
+            </div>
+
+
+            <div style="display: flex;align-items: center; justify-content: center; margin: 3rem 0;">
+                <a style="margin-right: 2rem;" href="khuyenmai.html">
+                    <div class="tintuc_item">
+                        Khuyến mãi
+                    </div>
+                </a>
+                <a style="margin-right: 2rem;" href="kienthuc.html">
+                    <div class="tintuc_item">
+                        Kiến thức
+                    </div>
+                </a>
+                <a href="congtrinh.html">
+                    <div style="padding: 0.6rem 1rem; color: white; background-color: #757575; font-weight: 700; border-radius: 1rem;">
+                        Công trình
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="home1" style="width: 85%; margin: 10rem auto 3rem auto; display: flex; align-items: center;">
+            <div style="width: 55%;">
+                <img style="width: 100%; border-radius: 1.5rem;" src="img_home-product1.jpg" alt="">
+            </div>
+            <div style="width: 45%; padding: 2rem;">
+                <div>
+                    <a class="a_hover" style="font-size: 2.2rem; margin: 1.3rem 0; font-weight: 700;" href="">
+                        Biệt Thự Celadon Tân Phú
+                    </a>
+                    <p style="border-bottom: 1px solid black; padding-bottom: 1rem;">Tân Phú, Hồ Chí Minh</p>
+                </div>
+                <div style="margin: 1.5rem 0;">
+                    <i style="font-size: 1.3rem;" class="fa-solid fa-bed"></i>
+                    <label style="font-size: 1.3rem;" for="">:3</label>
+                    <i style="margin-left: 1.5rem; font-size: 1.3rem;" class="fa-solid fa-bath"></i>
+                    <label style="font-size: 1.3rem;" for="">:3</label>
+                    <i style="margin-left: 1.5rem; font-size: 1.3rem;" class="fa-solid fa-house-flag"></i>
+                    <label style="font-size: 1.3rem;" for="">:150m2</label>
+                    <label style="padding-left: 1.7rem; margin-left: 1.7rem; font-size: 1rem; text-align: center; border-left: 1px solid;">Căn hộ 3 phòng ngủ</label>
+                </div>
+                <table style="width: 100%;">
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 1rem 0;">
+                                <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 1.1rem; margin-left: -10px;">Giải Pháp Chiếu Sáng</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 1rem 0;">
+                                <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 1.1rem; margin-left: -10px;">Giải Pháp Điều Khiển</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 1rem 0;">
+                                <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 1.1rem; margin-left: -10px;">Giải Pháp An Ninh</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 1rem 0;">
+                                <div style="width: 15px; height: 15px; border-radius: 5px; border: 1px solid; margin-left: 8px;"></div>
+                                <i style="color: red; position: relative; left: -15px;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 1.1rem; margin-left: -10px;">Giải Pháp Truyền Hình</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 85%; margin: 6rem auto 3rem auto;">
+            <a id="home2" href="#" class="home-product">
+                <img class="home-product-img" src="img_home-product2.jpg" alt="">
+                <p class="home-product-label">Căn Hộ Phú Quốc</p>
+                <p class="home-product-sub">Phú Quốc, Việt Nam</p>
+                <div class="home-product-icon">
+                    <div>
+                        <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                        <label style="font-size: 0.75rem;" for="">:3</label>
+                        <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                        <label style="font-size: 0.75rem;" for="">:2</label>
+                        <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                        <label style="font-size: 0.75rem;" for="">:100m2</label>
+                    </div>
+                    <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Căn hộ 2 phòng ngủ</label>
+                </div>
+                <table cellspacing="5">
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a id="home3" href="#" class="home-product">
+                <img class="home-product-img" src="img_home-product3.jpg" alt="">
+                <p class="home-product-label">Nhà Phố Quận 7</p>
+                <p class="home-product-sub">Quận 7, Hồ Chí Minh</p>
+                <div class="home-product-icon">
+                    <div>
+                        <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                        <label style="font-size: 0.75rem;" for="">:3</label>
+                        <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                        <label style="font-size: 0.75rem;" for="">:3</label>
+                        <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                        <label style="font-size: 0.75rem;" for="">:90m2</label>
+                    </div>
+                    <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Nhà phố 3 tầng</label>
+                </div>
+                <table cellspacing="5">
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a href="#" class="home-product">
+                <img class="home-product-img" src="img_home-product4.jpg" alt="">
+                <p class="home-product-label">Làng Yến Kiên Giang</p>
+                <p class="home-product-sub">Tỉnh Kiên Giang</p>
+                <div class="home-product-icon">
+                    <div>
+                        <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                        <label style="font-size: 0.75rem;" for="">:2</label>
+                        <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                        <label style="font-size: 0.75rem;" for="">:2</label>
+                        <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                        <label style="font-size: 0.75rem;" for="">:115m2</label>
+                    </div>
+                    <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Nhà phố 3 tầng</label>
+                </div>
+                <table cellspacing="5">
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+        </div>
+        
+        <div class="list_home">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 85%; margin: 6rem auto 3rem auto;">
+                <a href="#" class="home-product">
+                    <img class="home-product-img" src="img_home-product2.jpg" alt="">
+                    <p class="home-product-label">Căn Hộ Phú Quốc</p>
+                    <p class="home-product-sub">Phú Quốc, Việt Nam</p>
+                    <div class="home-product-icon">
+                        <div>
+                            <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                            <label style="font-size: 0.75rem;" for="">:3</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                            <label style="font-size: 0.75rem;" for="">:2</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                            <label style="font-size: 0.75rem;" for="">:100m2</label>
+                        </div>
+                        <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Căn hộ 2 phòng ngủ</label>
+                    </div>
+                    <table cellspacing="5">
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+                <a href="#" class="home-product">
+                    <img class="home-product-img" src="img_home-product3.jpg" alt="">
+                    <p class="home-product-label">Nhà Phố Quận 7</p>
+                    <p class="home-product-sub">Quận 7, Hồ Chí Minh</p>
+                    <div class="home-product-icon">
+                        <div>
+                            <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                            <label style="font-size: 0.75rem;" for="">:3</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                            <label style="font-size: 0.75rem;" for="">:3</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                            <label style="font-size: 0.75rem;" for="">:90m2</label>
+                        </div>
+                        <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Nhà phố 3 tầng</label>
+                    </div>
+                    <table cellspacing="5">
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+                <a href="#" class="home-product">
+                    <img class="home-product-img" src="img_home-product4.jpg" alt="">
+                    <p class="home-product-label">Làng Yến Kiên Giang</p>
+                    <p class="home-product-sub">Tỉnh Kiên Giang</p>
+                    <div class="home-product-icon">
+                        <div>
+                            <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                            <label style="font-size: 0.75rem;" for="">:2</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                            <label style="font-size: 0.75rem;" for="">:2</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                            <label style="font-size: 0.75rem;" for="">:115m2</label>
+                        </div>
+                        <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Nhà phố 3 tầng</label>
+                    </div>
+                    <table cellspacing="5">
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+            </div>
+        </div>
+        <div class="list_home">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 85%; margin: 6rem auto 3rem auto;">
+                <a href="#" class="home-product">
+                    <img class="home-product-img" src="img_home-product2.jpg" alt="">
+                    <p class="home-product-label">Căn Hộ Phú Quốc</p>
+                    <p class="home-product-sub">Phú Quốc, Việt Nam</p>
+                    <div class="home-product-icon">
+                        <div>
+                            <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                            <label style="font-size: 0.75rem;" for="">:3</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                            <label style="font-size: 0.75rem;" for="">:2</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                            <label style="font-size: 0.75rem;" for="">:100m2</label>
+                        </div>
+                        <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Căn hộ 2 phòng ngủ</label>
+                    </div>
+                    <table cellspacing="5">
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+                <a href="#" class="home-product">
+                    <img class="home-product-img" src="img_home-product3.jpg" alt="">
+                    <p class="home-product-label">Nhà Phố Quận 7</p>
+                    <p class="home-product-sub">Quận 7, Hồ Chí Minh</p>
+                    <div class="home-product-icon">
+                        <div>
+                            <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                            <label style="font-size: 0.75rem;" for="">:3</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                            <label style="font-size: 0.75rem;" for="">:3</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                            <label style="font-size: 0.75rem;" for="">:90m2</label>
+                        </div>
+                        <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Nhà phố 3 tầng</label>
+                    </div>
+                    <table cellspacing="5">
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+                <a href="#" class="home-product">
+                    <img class="home-product-img" src="img_home-product4.jpg" alt="">
+                    <p class="home-product-label">Làng Yến Kiên Giang</p>
+                    <p class="home-product-sub">Tỉnh Kiên Giang</p>
+                    <div class="home-product-icon">
+                        <div>
+                            <i style="font-size: 0.75rem;" class="fa-solid fa-bed"></i>
+                            <label style="font-size: 0.75rem;" for="">:2</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-bath"></i>
+                            <label style="font-size: 0.75rem;" for="">:2</label>
+                            <i style="margin-left: 0.44rem; font-size: 0.75rem;" class="fa-solid fa-house-flag"></i>
+                            <label style="font-size: 0.75rem;" for="">:115m2</label>
+                        </div>
+                        <label style="padding-left: 1.25rem; font-size: 0.75rem; text-align: center; border-left: 1px solid; float: right;">Nhà phố 3 tầng</label>
+                    </div>
+                    <table cellspacing="5">
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Chiếu Sáng</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Điều Khiển</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: -5px;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp An Ninh</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="display: flex; align-items: center; margin: 0.625rem 0 5px 0;">
+                                    <div style="width: 0.94rem; height: 0.94rem; border-radius: 5px; border: 1px solid; margin-left: 0.5rem;"></div>
+                                    <i style="color: red; position: relative; left: -0.94rem;" class="fa-solid fa-check"></i>
+                                    <p style="font-size: 0.75rem; margin-left: -0.625rem;">Giải Pháp Truyền Hình</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <a href="#" class="item_hover" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1.2rem; border: 1px solid black; border-radius: 0.2rem; width: 5.2rem; text-align: center;">Xem nhanh</a>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+            </div>
+        </div>
+
+        <button class="item_hover" id="see_more" style="display: block; cursor: pointer; margin: 5rem auto; background-color: #757575; color: white; padding: 0.7rem 2rem; font-size: 1.2rem; border: #757575; border-radius: 3px; color: white;">Xem thêm</button>
+        
+        <div class="content content-item2">
+            <div style="width: 100%; height: 100%; display: flex;">
+                <div style="width: 50%; height: 100%;">
+                    <div style="margin-top: 50px;">
+                        <img style="margin-left: 10px;"  src="logo.png" alt="">
+                        <ul>
+                            <li>Tên đơn vị: CÔNG TY CỔ PHẦN VIỄN THÔNG FPT</li>
+                            <li>Người đại diện: Anh XXX</li>
+                            <li>Địa chỉ: Tầng 2, Tòa nhà FPT Cầu Giấy, Phố Duy Tân, P. Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội</li>
+                            <li>Điện thoại: 19006600 - Email: fptsmarthome@fpt.com</li>
+                            <li>Giấy chứng nhận ĐKKD số 0101778163 do Sở Kế hoạch Đầu tư Thành phố Hà Nội cấp ngày 28/07/2005</li>
+                        </ul>
+                        <img style="width: 160px;" src="img_footer.png" alt="">
+                    </div>
+                </div>
+                <div style="width: 25%; height: 100%;">
+                    <div style="margin-top: 50px;">
+                        <h1 style="font-weight: 700; margin-left: 10px;">Sản phẩm</h1>
+                        <ul>
+                            <li><a href="#">Ổ Cắm Thông Minh WiFi</a></li>
+                            <li><a href="#">Bộ Điều Khiển Hồng Ngoại</a></li>
+                            <li><a href="#">Cảm Biến Chuyển Động Âm Trần</a></li>
+                            <li><a href="#">FPT Play Box S</a></li>
+                            <li><a href="#">Cảm Biến Cửa</a></li>
+                            <li><a href="#">Đèn LED Downlight Thông Minh</a></li>
+                        </ul>
+                        <div style="display: flex; justify-content: space-between; margin-top: 35px;">
+                            <div style="font-size: 25px; width: 70px; height: 70px; border-radius: 50%; background-color: black; color: white; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div style="font-size: 25px; width: 70px; height: 70px; border-radius: 50%; background-color: black; color: white; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 25%; height: 100%;">
+                    <div style="margin-top: 50px;">
+                        <h1 style="font-weight: 700; margin-left: 10px;">Hỗ trợ</h1>
+                        <ul>
+                            <li>FAQ</li>
+                            <li>Đăng ký đại lý</li>
+                            <li>Chính sách bảo hành</li>
+                            <li>Chính sách quyền riêng tư</li>
+                            <li>Điều khoản sử dụng</li>
+                            <li>Chính sách xử lý dữ liệu cá nhân</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

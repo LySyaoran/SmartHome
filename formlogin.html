@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore-compat.js"></script>
+    <script type="module" src="firebaseauth.js"></script>
+    <title>Login</title>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(.6); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+            background-image: url('img_gioithieu-2.jpg');
+        }
+        .wrapper {
+            width: 350px;
+            height: 390px;
+            border: 1px solid;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+            margin-top: 27px;
+            transition: height 0.2s ease;
+        }
+        .form-box {
+            width: 100%;
+            padding: 40px;
+        }
+        .input-box {
+            width: 100%;
+            height: 40px;
+            border-bottom: 3px solid #162938;
+            margin: 30px 0;
+            position: relative;
+        }
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #162938;
+            transform: translateY(-50%);
+            font-size: 18px;
+            font-weight: 500;
+            pointer-events: none;
+            transition: 0.5s;
+        }
+        .input-box input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            background: none;
+            padding: 0 5px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #162938;
+            padding: 0 35px 0 5px;
+        }
+        .input-box .icon {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #162938;
+            font-size: 22px;
+        }
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label {
+            top: -5px;
+            font-size: 14px;
+        }
+        .remeber-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .remeber-forgot label {
+            display: flex;
+            align-items: center;
+            color: #162938;
+        }
+        .remeber-forgot a {
+            color: #162938;
+            text-decoration: none;
+        }
+        .remeber-forgot a:hover {
+            text-decoration: underline;
+        }
+        .remeber-forgot input {
+            margin-right: 5px;
+        }
+        .btn {
+            width: 100%;
+            height: 40px;
+            background: #162938;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #e8eaec;
+            color: #162938;
+        }
+        .login-register {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-register p {
+            color: #162938;
+        }
+        .login-register a {
+            color: #162938;
+            text-decoration: none;
+        }
+        .login-register a:hover {
+            text-decoration: underline;
+        }
+        .icon-close{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            cursor: pointer;
+            color: white;
+            background-color: #162938;
+            font-size: 25px;
+            padding: 15px;
+            border-bottom-left-radius: 20px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .wrapper .form-box.login{
+            transition: transform 0.18s ease;
+            transform: translateX(0);
+        }
+        .form-box.register{
+            position: absolute;
+            transform: translateX(100%);
+        }
+        .wrapper.active{
+            height: 440px;
+        }
+        .wrapper.active .form-box.login{
+            transform: translateX(-100%);
+            transition: none;
+        }
+        .wrapper .form-box.register{
+            position: absolute;
+            transition: none;
+            transform: translateX(100%);
+        }
+        .wrapper.active .form-box.register{
+            transform: translateX(0);
+            transition: transform 0.18s ease;
+        }
+        .register .remeber-forgot{
+            font-size: 13px;
+        }
+        .messageDiv{
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            /* opacity: 0; */
+            transition: opacity 0.5s;
+        }
+
+
+
+
+
+
+
+
+
+        /*//////////////////////// HEADER_START //////////////////*/
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        ul, li{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            background-color: white;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+        }
+        .act-header{
+            background-color: rgb(255, 77, 0);
+            color: white;
+        }
+        .logo{
+            margin-left: 50px;
+            border: 3px solid #e95907;
+            padding: 6px;
+            border-radius: 10px;
+        }
+        .logo-img{
+            height: 15px;
+        }
+        .menu{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+        }
+        .menu-item{
+            color: black;
+            padding: 7px;
+            font-size: 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-left: 20px;
+            transition: transform 0.1s;
+
+        }
+        .menu-item.act-header {
+            color: white;
+        }
+        .menu-item:hover{
+            background-color: #f1f1f1;
+            background-color: rgb(255, 77, 0);
+            color: white;
+            transform: scale(1);
+            cursor: pointer;
+        }
+        .menu-item:hover .menu_1{
+            display: block;
+        }
+        .menu-item::after{
+            content: '';
+            position: absolute;
+            display: block;
+            width: 120px;
+            height: 13px;
+            background-color: transparent;
+            left: -10px;
+        }
+        .menu_1{
+            position: absolute;
+            background-color: white;
+            color: black;
+            top: 42px;
+            left: -126px;
+            display: none;
+        }
+        .menu_1_item{
+            position: relative;
+            width: 170px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            border-right: 1px solid rgb(185 185 185);
+            text-align: center;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .menu_1_item:hover{
+            color: white;
+            background-color: rgb(255, 77, 0);
+        }
+        .menu_1_item:hover .menu_2{
+            display: block;
+            cursor: pointer;
+        }
+        .menu_2{
+            position: absolute;
+            background-color: white;
+            color: black;
+            top: 0px;
+            left: 171px;
+            display: none;
+        }
+        .menu_2_item{
+            position: relative;
+            width: 190px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            border-right: 1px solid rgb(185 185 185);
+            text-align: center;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .menu_2_item:hover{
+            color: white;
+            background-color: rgb(255, 77, 0);
+        }
+        .menu_2_item:hover .menu_3{
+            display: block;
+        }
+        .menu_3{
+            position: absolute;
+            background-color: white;
+            color: black;
+            top: 0px;
+            left: 190px;
+            display: none;
+        }
+        .menu_3_item{
+            position: relative;
+            width: 300px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(185 185 185);
+            border-left: 1px solid rgb(185 185 185);
+            text-align: center;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .menu_3_item:hover{
+            color: white;
+            background-color: rgb(255, 77, 0);
+        }
+        .menu ul li a:hover{
+            color: white;
+        }
+        .header-login{
+            background-color: #e95907;
+            color: white;
+        }
+        /*//////////////////////// HEADER_END //////////////////*/
+
+        /*//////////////////////// SEARCH_START ////////////////*/
+        .box_search{
+            width: 100%;
+            background-color: rgb(245, 245, 245);
+            display: none;
+            color: black;
+            position: fixed;
+            padding: 5%;
+            font-size: 20px;
+            z-index: 999;
+        }
+        .search-main{
+            display: flex;
+            align-items: center;
+            width: 88%;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px 0 10px 30px;
+        }
+        .search-main .fa-magnifying-glass{
+            margin-right: 30px;
+        }
+        #inp_search{
+            width: 100%;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            margin: 10px 0;
+            background-color: transparent;
+            padding: 5px;
+        }
+        #inp_search:focus{
+            outline: none;
+        }
+        .box_search p{
+            color: #757575;
+            font-size: 18px;
+            margin: 20px;
+        }
+        .box_search ul{
+            list-style-type: disc;
+            font-size: 18px;
+            margin: 20px;
+            width: 88%;
+        }
+        .box_search li{
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .box_search li:hover{
+            background-color: #e8e6e6;
+            border-radius: 10px;
+        }
+        /*//////////////////////// SEARCH_END //////////////////*/
+        .content{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn .4s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img class="logo-img" src="logo.png" alt="logo"></a>
+        </div>
+        <div class="menu">
+            <ul style="display: flex;">
+                <li class="menu-item">
+                    <a href="gioithieu.html">Giới thiệu</a>
+                </li>
+                <li class="menu-item" href="Sanpham.html">
+                    <a href="Sanpham.html">Sản phẩm</a>
+                    <div class="menu_1">
+                        <ul>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị theo giải pháp</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#congtacthongminh">Công tắc thông minh</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Leto</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Athena</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Công tắc cảm ứng Hera</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#congtacthongminh">Nút bấm ngữ cảnh không dây</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#denthongminh">Đèn thông minh</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Downlight thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Bulb thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Panel thông minh</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#denthongminh">Đèn LED Dây thông minh</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#cambien">Cảm biến</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến cửa</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến chuyển động</a></div>
+                                            <div class="menu_3_item"><a href="Sanpham.html#cambien">Cảm biến âm trần</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#remcua">Bộ rèm cửa</a>
+                                        <div class="menu_3">
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Bộ điều khiển rèm cửa thông minh</a>
+                                            </div>
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Ray rèm điện thông minh</a>
+                                            </div>
+                                            <div class="menu_3_item">
+                                                <a href="Sanpham.html#remcua">Công tắc điều khiển rèm cửa thông minh</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị trung tâm</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#fptplaybox">FPT Play Box S</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#usbzingbee">USB ZingBee</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị độc lập</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#bdkhn">Bộ điều khiển hồng ngoại</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#ocmkat">Ổ cắm mặt kính âm tường</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="Sanpham.html">Thiết bị kết hợp</a>
+                                <div class="menu_2">
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#kctm">Khóa cửa văn tay YALE</a>
+                                    </div>
+                                    <div class="menu_2_item">
+                                        <a href="Sanpham.html#kctm">Khóa cửa thẻ từ YALE</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item" href="#">
+                    <a href="khuyenmai.html">Tin tức</a>
+                    <div class="menu_1" style="left: -42px;">
+                        <ul>
+                            <li class="menu_1_item">
+                                <a href="khuyenmai.html">Khuyến mãi</a>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="kienthuc.html">Kiến thức</a>
+                            </li>
+                            <li class="menu_1_item">
+                                <a href="congtrinh.html">Công trình</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a href="hotro.html">Hỗ trợ</a>
+                </li>
+                <li class="menu-item login" href="formlogin.html">
+                    <a class="a_login" href="formlogin.html"><i style="margin-right: 10px;" class="fa-solid fa-bag-shopping"></i>Đăng nhập</a>
+                </li>
+                <li class="menu-item icon-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box_search">
+        <div class="search-main">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="inp_search" id="inp_search" placeholder="Bạn muốn tìm kiếm điều gì ?">
+        </div>
+        <p>Tìm kiếm hàng đầu</p>
+        <ul>
+            <li class="text-search">Giải Pháp Chiếu Sáng</li>
+            <li class="text-search">Hướng Dẫn Phần Cài Đặt Chung Cho Tất Cả Sản Phẩm</li>
+            <li class="text-search">Giải Pháp Nhà Thông Minh Và Trải Nghiệm Thực Tế</li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="wrapper">
+            <a href="index.html" class="icon-close"><i class="fa-solid fa-xmark"></i></a>
+            <div class="form-box login" id="login-form">
+                <h2 style="color: #162938; text-align: center; font-size: 40px;">Đăng nhập</h2>
+                <form action="#">
+                    <!-- <div id="loginMessage" class="messageDiv" style="display: none;" ></div> -->
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input id="emailInp1" type="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input id="passwordInp1" type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="remeber-forgot">
+                        <label><input type="checkbox">Nhớ mật khẩu</label>
+                        <a href="#">Quên mật khẩu</a>
+                    </div>
+                    <button type="submit" class="btn" id="btn_login">Đăng nhập</button>
+                    <div class="login-register">
+                        <p>Bạn không có tài khoản? <a href="#" class="register-link">Đăng kí</a></p>
+                    </div>
+                </form>
+            </div>
+    
+    
+    
+            <div class="form-box register" id="register-form">
+                <h2 style="color: #162938; text-align: center; font-size: 40px;">Đăng kí</h2>
+                <form action="#">
+                    <!-- <div id="registerMessage" class="messageDiv" style="display: none;" ></div> -->
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <input id="userInp" type="text" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input id="emailInp" type="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input id="passwordInp" type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="remeber-forgot">
+                        <label><input type="checkbox">Tôi đồng ý với chính sách và điều khoản</label>
+                    </div>
+                    <button type="submit" class="btn" id="btn_register">Đăng kí</button>
+                    <div class="login-register">
+                        <p>Đã có tài khoản? <a href="#" class="login-link">Đăng nhập</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var wrapper = document.querySelector('.wrapper');
+        var loginlink = document.querySelector('.login-link');
+        var registerlink = document.querySelector('.register-link');
+        var btn_login = document.getElementById('btn_login');
+        var btn_register = document.getElementById('btn_register');
+        const loginForm = document.getElementById('login-form').querySelector('form');
+        const registerForm = document.getElementById('register-form').querySelector('form');
+        registerlink.addEventListener('click', function(){
+            wrapper.classList.add('active');
+            btn_register.style.backgroundColor = '#162938';
+            btn_register.style.color = 'white';
+            registerForm.reset();
+        });
+        loginlink.addEventListener('click', function(){
+            wrapper.classList.remove('active');
+            btn_login.style.backgroundColor = '#162938';
+            btn_login.style.color = 'white';
+            loginForm.reset();
+        });
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var itemMN = document.querySelectorAll('.menu-item');
+            itemMN.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    itemMN.forEach(function(item) {
+                        item.classList.remove('act-header');
+                    });
+                    this.classList.add('act-header');
+                });
+            });
+        });
+        var iconSearch = document.querySelectorAll('.icon-search');
+        iconSearch.forEach(function(icon) {
+            icon.addEventListener('click', function() {
+                var boxSearch = document.querySelector('.box_search');
+                if (boxSearch.style.display === 'block') {
+                    boxSearch.style.display = 'none';
+                } else {
+                    boxSearch.style.display = 'block';
+                }
+            });
+        });
+        var inputSearch = document.getElementById('inp_search');
+        var recommendText = document.querySelectorAll('.text-search');
+        recommendText.forEach(function(text) {
+            text.addEventListener('click', function() {
+                inputSearch.value = text.textContent;
+            });
+        });
+        var header = document.querySelector('.header');
+        var headerHeight = header.clientHeight;
+        var content = document.querySelector('.content');
+        content.style.marginTop = headerHeight + "px";
+
+        // var block_form = document.getElementById('block_form');
+        // block_form.addEventListener('click', function(){
+            
+        // });
+    </script>
+</body>
+</html>
